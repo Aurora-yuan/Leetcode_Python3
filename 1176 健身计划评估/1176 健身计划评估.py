@@ -1,3 +1,4 @@
+# label: slidewindow difficulty: easy
 class Solution:
     def dietPlanPerformance(self, calories: List[int], k: int, lower: int, upper: int) -> int:
         # 函数定义后的箭头：https://blog.csdn.net/sunt2018/article/details/83022493
