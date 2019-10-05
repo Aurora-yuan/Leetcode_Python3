@@ -1,3 +1,4 @@
+#label: backtracking difficulty: easy
 class Solution:
     def readBinaryWatch(self, num: int) -> List[str]:
         ans = []
