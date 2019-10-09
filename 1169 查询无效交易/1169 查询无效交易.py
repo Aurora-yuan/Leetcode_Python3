@@ -1,4 +1,4 @@
-#label: 字符串 difficulty: easy
+#label: 字符串 difficulty: medium
 """
 先把所有的交易记录用哈希表，按照每个人的名字分好类，
 
