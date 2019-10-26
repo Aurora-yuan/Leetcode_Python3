@@ -46,5 +46,37 @@ class Solution(object):
             pa = pa.next
             pb = pb.next
         return None
+“”“
+第二种思路：
+
+把链表A里的每个节点都记录在哈希表里，然后遍历链表B，返回第一个出现在哈希表里的节点。
+
+时间复杂度O(M + N)，空间复杂度O(M)
+
+”“”
+
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        dic = {}
+        p = headA
+        while p:
+            dic[p] = 1
+            p = p.next
+        p = headB
+        while p:
+            if p in dic:
+                return p
+            p = p.next
+        return None
+
+“”“
+第三种思路:
+
+把链表A里的每一个节点都在链表B里查找，时间复杂度O(MN)，空间复杂度O(1)
+“”“
 
 
