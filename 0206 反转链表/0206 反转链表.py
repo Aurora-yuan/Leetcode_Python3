@@ -3,6 +3,8 @@
 """
 思路一：
 
+迭代法
+
 最经典的反转链表的方法，清华数据结构书中介绍
 """
 
@@ -57,4 +59,38 @@ class Solution(object):
             
         p.next = None
         return newhead
+    
+“”“
+思路三：
+
+递归，假设我们已经得到了把head.next翻转完成的结果，p指向这个结果的头，
+
+head的next指针此时指向这个结果的最后一个节点，即head.next
+
+为了将head也翻转，我们需要让head.next的next指针指向head，然后把head的next置空，
+
+最后返回p即可。
+
+”“”
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+ 
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head or not head.next:
+            return head
+        p = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return p
+
+
 
