@@ -1,0 +1,27 @@
+#label: hash table difficulty: easy
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap={}
+        for i,num in enumerate(nums):
+            if hashmap.get(target - num) is not None:
+                return [i,hashmap.get(target - num)]
+            hashmap[num] = i #这句不能放在if语句之前，解决list中有重复值或target-num=num的情况
+
+
+#暴力解法
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        if len(nums) == 0:
+            return []
+        for index, item in enumerate(nums):
+            for count in range(index+1, len(nums)):
+                if item + nums[count] == target:
+                    return [index, count]
+
