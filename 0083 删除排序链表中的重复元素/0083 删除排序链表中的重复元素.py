@@ -42,7 +42,7 @@ class Solution:
         while cur:
             if pre and cur.val == pre.val:
                 pre.next = cur.next
-                cur.next = None
+                #cur.next = None
                 cur = pre.next
             else:    
                 pre = pre.next
