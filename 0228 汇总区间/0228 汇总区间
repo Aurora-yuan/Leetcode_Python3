@@ -1,0 +1,32 @@
+#label: array difficulty: medium
+
+"""
+思路：
+
+直接模拟
+
+"""
+
+class Solution:
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        if not nums:
+            return nums
+        start, end = nums[0], nums[0]
+        res = []
+        for i, num in enumerate(nums):
+            if i != 0:
+                if num == end + 1: #连上了
+                    end += 1
+                else: # 断开了
+                    if end - start == 0: #只有一个数
+                        res.append(str(end))
+                    else:
+                        res.append(str(start) + "->" + str(end))
+                    start, end = num, num
+        if end - start == 0: #处理最后一段
+            res.append(str(end))
+        else:
+            res.append(str(start) + "->" + str(end))
+        return res
+
+
